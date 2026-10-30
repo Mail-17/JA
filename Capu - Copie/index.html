@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joyeux anniversaire Capucine !</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1 id="msg">JOYEUX ANNIVERSAIRE !!!</h1>
+<p id="name">Capu 🎉</p>
+
+<svg id="gift" viewBox="0 0 240 240" role="button" aria-label="Cliquer sur le cadeau">
+  <defs>
+    <linearGradient id="noir" x1="0" x2="1">
+      <stop offset="0" stop-color="#3a3a3a"/>
+      <stop offset=".25" stop-color="#1c1c1c"/>
+      <stop offset=".8" stop-color="#0d0d0d"/>
+      <stop offset="1" stop-color="#242424"/>
+    </linearGradient>
+    <linearGradient id="or" x1="0" x2="1">
+      <stop offset="0" stop-color="#f3cc79"/>
+      <stop offset=".5" stop-color="#fbe3a3"/>
+      <stop offset="1" stop-color="#e2ad4a"/>
+    </linearGradient>
+    <linearGradient id="orBoucle" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbe3a3"/>
+      <stop offset="1" stop-color="#e0a540"/>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="120" cy="226" rx="82" ry="8" fill="#000" opacity=".15"/>
+
+  <!-- corps de la boîte -->
+  <rect x="45" y="108" width="150" height="116" rx="6" fill="url(#noir)"/>
+  <rect x="108" y="108" width="24" height="116" fill="url(#or)"/>
+  <!-- intérieur visible quand le couvercle est parti -->
+  <rect x="49" y="100" width="142" height="14" fill="#050505"/>
+  <rect x="49" y="100" width="142" height="3" fill="#2a2a2a"/>
+
+  <!-- couvercle + noeud -->
+  <g id="lid">
+    <rect x="36" y="76" width="168" height="38" rx="7" fill="url(#noir)"/>
+    <rect x="108" y="76" width="24" height="38" fill="url(#or)"/>
+    <!-- boucles du noeud -->
+    <path d="M120 78 C82 22 40 50 70 74 C86 86 108 82 120 78Z" fill="url(#orBoucle)"/>
+    <path d="M120 78 C158 22 200 50 170 74 C154 86 132 82 120 78Z" fill="url(#orBoucle)"/>
+    <ellipse cx="86" cy="60" rx="14" ry="9" transform="rotate(-25 86 60)" fill="#e8b552"/>
+    <ellipse cx="154" cy="60" rx="14" ry="9" transform="rotate(25 154 60)" fill="#e8b552"/>
+    <ellipse cx="120" cy="77" rx="13" ry="9" fill="url(#or)"/>
+  </g>
+</svg>
+
+<p id="hint">Clique sur le cadeau 🎁</p>
+<canvas id="c"></canvas>
+<script src="script.js"></script>
+</body>
+</html>

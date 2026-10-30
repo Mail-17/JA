@@ -1,0 +1,25 @@
+:root{--bg:#fdf3e3;--fg:#b7791f;--sub:#7a6248}
+@media (prefers-color-scheme:dark){:root{--bg:#2a1f2e;--fg:#f5cf7a;--sub:#d8c4a8;color-scheme:dark}}
+html,body{height:100%;margin:0}
+body{background:var(--bg);font-family:"Trebuchet MS",Verdana,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;text-align:center}
+
+/* Le message sort de la boîte : il part de derrière elle et monte */
+#msg{color:var(--fg);font-weight:900;font-size:clamp(1.5rem,7vw,3rem);margin:0;padding:0 16px;line-height:1.15;min-height:2.4em;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;
+  opacity:0;transform:translateY(170px) scale(.3);transition:transform .9s cubic-bezier(.2,1.5,.4,1),opacity .4s}
+#msg.show{opacity:1;transform:translateY(0) scale(1)}
+#name{color:var(--sub);font-size:clamp(1.1rem,5vw,1.8rem);margin:4px 0 8px;opacity:0;transition:opacity .8s .5s;position:relative;z-index:1}
+#name.show{opacity:1}
+
+#gift{position:relative;z-index:2;cursor:pointer;width:min(62vw,300px);height:auto;-webkit-tap-highlight-color:transparent;animation:bob 2.4s ease-in-out infinite}
+#gift:not(.open):hover{filter:brightness(1.12)}
+#gift.wiggle{animation:wiggle .45s ease-in-out;transform-origin:50% 100%}
+#gift.open{animation:none;cursor:default}
+@keyframes bob{50%{transform:translateY(-8px)}}
+@keyframes wiggle{20%{transform:rotate(-5deg)}40%{transform:rotate(5deg)}60%{transform:rotate(-4deg)}80%{transform:rotate(3deg)}}
+
+/* Le couvercle saute puis tombe sur le côté en disparaissant */
+#lid{transform-box:fill-box;transform-origin:center;transition:transform .7s cubic-bezier(.3,1.3,.5,1),opacity .5s .3s}
+#gift.open #lid{transform:translate(90px,-110px) rotate(32deg);opacity:0}
+
+#hint{color:var(--sub);margin-top:16px;font-size:1rem;min-height:1.4em}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:3}
